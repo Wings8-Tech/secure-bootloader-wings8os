@@ -217,13 +217,13 @@ console_print_box_at(CHAR16 *str_arr[], int highlight,
 			CopyMem(Line + col + 1, s, min(len, size_cols - 2)*2);
 		}
 		if (line >= 0 && line == highlight)
-			co->SetAttribute(co, EFI_LIGHTGRAY |
-					       EFI_BACKGROUND_BLACK);
+			co->SetAttribute(co, EFI_BLACK |
+					       EFI_BACKGROUND_WHITE);
 		co->SetCursorPosition(co, start_col, i);
 		co->OutputString(co, Line);
 		if (line >= 0 && line == highlight)
-			co->SetAttribute(co, EFI_LIGHTGRAY |
-					       EFI_BACKGROUND_BLUE);
+			co->SetAttribute(co, EFI_WHITE |
+					       EFI_BACKGROUND_BLACK);
 
 	}
 	SetMem16 (Line, size_cols * 2, BOXDRAW_HORIZONTAL);
@@ -249,7 +249,7 @@ console_print_box(CHAR16 *str_arr[], int highlight)
 
 	CopyMem(&SavedConsoleMode, co->Mode, sizeof(SavedConsoleMode));
 	co->EnableCursor(co, FALSE);
-	co->SetAttribute(co, EFI_LIGHTGRAY | EFI_BACKGROUND_BLUE);
+	co->SetAttribute(co, EFI_WHITE | EFI_BACKGROUND_BLACK);
 
 	console_print_box_at(str_arr, highlight, 0, 0, -1, -1, 0,
 			     count_lines(str_arr));
@@ -316,7 +316,7 @@ console_select(CHAR16 *title[], CHAR16* selectors[], unsigned int start)
 
 	CopyMem(&SavedConsoleMode, co->Mode, sizeof(SavedConsoleMode));
 	co->EnableCursor(co, FALSE);
-	co->SetAttribute(co, EFI_LIGHTGRAY | EFI_BACKGROUND_BLUE);
+	co->SetAttribute(co, EFI_WHITE | EFI_BACKGROUND_BLACK);
 
 	console_print_box_at(title, -1, 0, 0, -1, -1, 1, count_lines(title));
 
