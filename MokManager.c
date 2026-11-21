@@ -2040,7 +2040,7 @@ static int draw_countdown()
 	UINTN cols, rows;
 	CHAR16 *title[2];
 	CHAR16 *message = L"Appuyez sur une touche pour accéder à votre clé sécurisée";
-	CHAR16 *message2 = L"Sinon, JemaOS démarrera automatiquement dans";
+	CHAR16 *message2 = L"Sinon, Wings8OS démarrera automatiquement dans";
 	void *MokTimeout = NULL;
 	MokTimeoutvar *var;
 	UINTN MokTimeoutSize = 0;
@@ -2062,7 +2062,7 @@ static int draw_countdown()
 
 	console_save_and_set_mode(&SavedMode);
 
-	title[0] = L"Vérification de sécurité JemaOS";
+	title[0] = L"Vérification de sécurité Wings8OS";
 	title[1] = NULL;
 
 	console_print_box_at(title, -1, 0, 0, -1, -1, 1, 1);
@@ -2075,11 +2075,11 @@ static int draw_countdown()
 	while (1) {
 		if (timeout > 1)
 			console_print_at((cols - 60) / 2, rows - 3,
-					 L"Sinon, JemaOS démarrera automatiquement dans %d secondes  ",
+					 L"Sinon, Wings8OS démarrera automatiquement dans %d secondes  ",
 					 timeout);
 		else if (timeout)
 			console_print_at((cols - 60) / 2, rows - 3,
-					 L"Sinon, JemaOS démarrera automatiquement dans %d seconde   ",
+					 L"Sinon, Wings8OS démarrera automatiquement dans %d seconde   ",
 					 timeout);
 
 		efi_status = WaitForSingleEvent(ci->WaitForKey, wait);
@@ -2143,7 +2143,7 @@ static EFI_STATUS enter_mok_menu(EFI_HANDLE image_handle,
 	UINTN auth_size = PASSWORD_CRYPT_SIZE;
 	UINT32 attributes;
 	BOOLEAN protected;
-	CHAR16 *mok_mgmt_p[] = { L"Sécurité du démarrage JemaOS", L"", L"Choisissez une action : (ces actions ne sont nécessaires qu'une seule fois)", NULL };
+	CHAR16 *mok_mgmt_p[] = { L"Sécurité du démarrage Wings8OS", L"", L"Choisissez une action : (ces actions ne sont nécessaires qu'une seule fois)", NULL };
 	EFI_STATUS ret = EFI_SUCCESS;
 
 	if (verify_pw(&protected) == FALSE)
@@ -2232,14 +2232,14 @@ static EFI_STATUS enter_mok_menu(EFI_HANDLE image_handle,
 				menu_strings[i] = L"▸ Réinitialiser les clés de sécurité";
 				menu_item[i] = MOK_RESET_MOK;
 			} else {
-				menu_strings[i] = L"▸ Ajouter une clé de sécurité JemaOS";
+				menu_strings[i] = L"▸ Ajouter une clé de sécurité Wings8OS";
 				menu_item[i] = MOK_ENROLL_MOK;
 			}
 			i++;
 		}
 
 		if (MokDel || MokDelAuth) {
-			menu_strings[i] = L"▸ Supprimer une clé de sécurité JemaOS";
+			menu_strings[i] = L"▸ Supprimer une clé de sécurité Wings8OS";
 			menu_item[i] = MOK_DELETE_MOK;
 			i++;
 		}
@@ -2249,14 +2249,14 @@ static EFI_STATUS enter_mok_menu(EFI_HANDLE image_handle,
 				menu_strings[i] = L"▸ Réinitialiser les clés de sécurité (MOKX)";
 				menu_item[i] = MOK_RESET_MOKX;
 			} else {
-				menu_strings[i] = L"▸ Ajouter une clé de sécurité JemaOS (MOKX)";
+				menu_strings[i] = L"▸ Ajouter une clé de sécurité Wings8OS (MOKX)";
 				menu_item[i] = MOK_ENROLL_MOKX;
 			}
 			i++;
 		}
 
 		if (MokXDel || MokXDelAuth) {
-			menu_strings[i] = L"▸ Supprimer une clé de sécurité JemaOS (MOKX)";
+			menu_strings[i] = L"▸ Supprimer une clé de sécurité Wings8OS (MOKX)";
 			menu_item[i] = MOK_DELETE_MOKX;
 			i++;
 		}
@@ -2279,7 +2279,7 @@ static EFI_STATUS enter_mok_menu(EFI_HANDLE image_handle,
 			i++;
 		}
 
-		menu_strings[i] = L"▸ Ajouter une clé de sécurité JemaOS depuis un fichier";
+		menu_strings[i] = L"▸ Ajouter une clé de sécurité Wings8OS depuis un fichier";
 		menu_item[i] = MOK_KEY_ENROLL;
 		i++;
 
